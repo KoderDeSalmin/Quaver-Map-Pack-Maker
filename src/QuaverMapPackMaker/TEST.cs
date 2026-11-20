@@ -22,9 +22,6 @@ class Test{
             newQUA.DifficultyName = "Test Diff";
             newQUA.Creator = "KoderDeSalmin";
 
-            newQUA.Save(outputDir);
-
-
             Debug.WriteLine($"Title: {qua.Title}");
             Debug.WriteLine($"Diffname: {qua.DifficultyName}");
             Debug.WriteLine($"Creator: {qua.Creator}");
