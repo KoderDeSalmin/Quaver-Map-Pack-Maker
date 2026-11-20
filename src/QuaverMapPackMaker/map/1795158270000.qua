@@ -1,0 +1,22 @@
+AudioFile: ''
+BackgroundFile: ''
+BannerFile: ''
+MapId: -1
+MapSetId: -1
+Mode: Keys4
+Title: ''
+Artist: ''
+Source: ''
+Tags: ''
+Creator: ''
+DifficultyName: ''
+BPMDoesNotAffectScrollVelocity: true
+InitialScrollVelocity: 1
+EditorLayers: []
+CustomAudioSamples: []
+SoundEffects: []
+TimingPoints:
+- StartTime: 9
+  Bpm: 159
+SliderVelocities: []
+HitObjects: []
