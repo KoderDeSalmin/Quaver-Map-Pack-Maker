@@ -22,7 +22,7 @@ class Test{
             newQUA.DifficultyName = "Test Diff";
             newQUA.Creator = "KoderDeSalmin";
 
-            newQUA.Save(outputDir);
+            //newQUA.Save(outputDir);
 
 
             Debug.WriteLine($"Title: {qua.Title}");
