@@ -10,9 +10,13 @@ class Test{
     public static void MapCreateTest(){
         String quaDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1780695854000.qua";
 
-        Debug.WriteLine(quaDir);
 
-        // var qua = Qua.Parse(sourcePath);
+        var qua = Qua.Parse(quaDir);
+
+        Debug.WriteLine($"Title: {qua.Title}");
+        Debug.WriteLine($"Diffname: {qua.DifficultyName}");
+        Debug.WriteLine($"Creator: {qua.Creator}");
+
 
         // qua.MapId = -1;
         // qua.DifficultyName = "TEST";
