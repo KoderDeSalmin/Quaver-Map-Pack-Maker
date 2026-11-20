@@ -90,7 +90,7 @@
                 <TextBlock  Text = "Set Creator" Margin = "50" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
                 <TextBox  Name = "creator" Margin = "-25" HorizontalAlignment = "Center"
-                            FontSize = "25" Foreground = "#222326" FontWeight = "Bold">
+                            FontSize = "25" Foreground = "#222326" FontWe ight = "Bold">
                             Enter Creator Here
                 </TextBox>
 
@@ -136,8 +136,8 @@
                 <TextBlock  Text = "Export Map" Margin = "90" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
                 <Button Content = "Export as qp" Width = "200" Height = "50"
-                        FontSize = "30" FontWeight = "Bold" Click = "Export"
-                        HorizontalAlignment = "Center" Margin = "-50"/>
+                        FontSize = "30" FontWeight = "Bold" Foreground = "Black"
+                        Click = "Export" HorizontalAlignment = "Center" Margin = "-50"/>
                 </StackPanel>
         </Grid>
 
