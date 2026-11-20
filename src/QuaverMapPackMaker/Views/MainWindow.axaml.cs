@@ -30,12 +30,12 @@ public partial class MainWindow : Window
     private void OnDragOver(object? sender, DragEventArgs e)
     {
         // Accept file drops only; reject everything else
-        if(e.DragEffects.Equals(e.DataTransfer.Contains(DataFormat.File))){
-            //DragDropEffects.Copy;
-            Debug.WriteLine(e.DragEffects);
-            Debug.WriteLine(e.DataTransfer.Contains(DataFormat.File));
+        //check for the correct image afterwards
+        if(e.DataTransfer.Contains(DataFormat.File)){
+            e.DragEffects = DragDropEffects.Copy;
+            Debug.WriteLine($"{e.DataTransfer.TryGetFiles()}");
         } else{
-            //DragDropEffects.None;
+            e.DragEffects = DragDropEffects.None;
         }
     }
 
@@ -48,7 +48,7 @@ public partial class MainWindow : Window
             foreach (var file in files)
             {
                 var path = file.Path.LocalPath;
-                //Debug.WriteLine(path);
+                Debug.WriteLine(path);
             }
         }
     }
