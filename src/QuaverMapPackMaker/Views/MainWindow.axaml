@@ -3,13 +3,14 @@
         xmlns:vm="using:QuaverMapPackMaker.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="40"
+        mc:Ignorable="d" d:DesignWidth="1500" d:DesignHeight="1000"
         x:Class="QuaverMapPackMaker.Views.MainWindow"
         x:DataType="vm:MainViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="QuaverMapPackMaker"
-        Height = "400"
-        Width = "400">
+        Width = "1500"
+        Height = "1000"
+        Background = "#222326"
+        Title="QuaverMapPackMaker">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -17,6 +18,35 @@
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <Button HorizontalAlignment = "Center" VerticalAlignment = "Center" Click = "ButtonClicked">"Press Me"</Button>
 
+    <Grid ShowGridLines="True" Margin="0">
+
+        <!--  ROW / COLUMN DEFINITIONS  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="800"></ColumnDefinition>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--  ROW / COLUMN DEFINITIONS  -->
+
+
+
+        <!--  ROW 0 START  -->
+        <TextBlock  Text = "By KoderDeSalmin" FontSize = "25" Foreground = "#E0E0E0" 
+                    Grid.Column = "0" Margin = "15"/>
+        <TextBlock  Text = "Special Thanks to a6st" FontSize = "25" Foreground = "#E0E0E0" 
+                    Grid.Column = "0" Margin = "15" VerticalAlignment = "Center"/>
+        <TextBlock  Text = "Version 0.1" FontSize = "25" Foreground = "#E0E0E0" 
+                    Grid.Column = "0" Margin = "15" VerticalAlignment = "Bottom"/>
+
+        <Border Grid.Column= "1" Background = "Black">
+            <TextBlock  Text = "Quaver Map Pack Maker" FontSize = "65" Foreground = "#E0E0E0" 
+                        HorizontalAlignment = "Center" VerticalAlignment = "Center"/>
+        </Border>
+        <!--  ROW 0 END  -->
+    </Grid>
 </Window>
