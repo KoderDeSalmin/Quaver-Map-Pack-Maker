@@ -16,7 +16,7 @@ class Tools{
 
 
 
-    //check file extension for images
+    //Check file extension for images
     public static bool CheckIMG(String file){
         String ext = Path.GetExtension(file);
         switch(ext){
@@ -26,7 +26,13 @@ class Tools{
         }
         return false;
     }
-
+    //Check file extension for QPs
+    public static bool CheckQP(String file){
+        String ext = Path.GetExtension(file);
+        if(ext.Equals(".qp"))
+            return true;
+        return false;
+    }
     
     
     //Store Image
@@ -45,6 +51,17 @@ class Tools{
         MapsetInfo.ImagePath = imagePath;
         File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, imageName), true);
     }
+    //Store QP
+    public static void StoreQP(String qpPath){
+
+    }
+
+
+
+
+
+
+
 
 
     public static void SetCreator(String? creator){

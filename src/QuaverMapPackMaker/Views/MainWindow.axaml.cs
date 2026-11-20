@@ -22,7 +22,12 @@ public partial class MainWindow : Window
         Tools.SetName(packName.Text);
         Tools.SetCreator(creator.Text);
 
+
+        //Delete temp folders and reset step to reset program.
         Tools.DeleteTemp();
+        Tools.step = 0;
+        DRAGDROP.Text = "Drag and Drop the background image";
+        INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
     }
 
 
@@ -94,10 +99,13 @@ public partial class MainWindow : Window
             DRAGDROP.Text = "Drag and Drop the QPs";
             INSTRUCTIONS.Text = "Drop your QP files here";
         }   else{
+            //QP FILES
             if (e.DataTransfer.TryGetFiles() is { } files){
                 foreach (var file in files){
-                    var path = file.Path.LocalPath;
-                    Debug.WriteLine(path);
+                    var qpPath = file.Path.LocalPath;
+                    if(Tools.CheckQP(qpPath)){
+                        Tools.StoreQP(qpPath);
+                    }
                 }
             }
         }
