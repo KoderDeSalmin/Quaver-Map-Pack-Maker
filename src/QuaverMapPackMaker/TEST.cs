@@ -8,9 +8,9 @@ namespace TestCode;
 
 class Test{
     public static void MapCreateTest(){
-        String currentDir = Directory.GetCurrentDirectory();
+        String quaDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1780695854000.qua";
 
-        Debug.WriteLine(currentDir);
+        Debug.WriteLine(quaDir);
 
         // var qua = Qua.Parse(sourcePath);
 
