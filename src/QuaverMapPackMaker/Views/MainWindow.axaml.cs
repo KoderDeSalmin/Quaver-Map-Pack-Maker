@@ -48,7 +48,7 @@ public partial class MainWindow : Window
             foreach (var file in files)
             {
                 var path = file.Path.LocalPath;
-                Debug.WriteLine(path);
+                //Debug.WriteLine(path);
             }
         }
     }
