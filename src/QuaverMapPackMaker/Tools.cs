@@ -47,7 +47,20 @@ class Tools{
     }
 
 
+    public static void SetCreator(String? creator){
+        if (string.IsNullOrWhiteSpace(creator)){
+            creator = "someone";
+        }
 
+        MapsetInfo.Creator = creator;
+    }
+    public static void SetName(String? name){
+        if (string.IsNullOrWhiteSpace(name)){
+            name = "someone";
+        }
+
+        MapsetInfo.Name = name;
+    }
 
     //Create temporary folder
     public static void CreateTemp(){

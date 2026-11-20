@@ -5,7 +5,6 @@ using System;
 using System.Diagnostics;
 using QuaverMapPackMaker.Helpers;
 
-
 namespace QuaverMapPackMaker.Views;
 
 public partial class MainWindow : Window
@@ -20,6 +19,9 @@ public partial class MainWindow : Window
 
     //Function For button press
     private void Export(object? o, RoutedEventArgs e){
+        Tools.SetName(packName.Text);
+        Tools.SetCreator(creator.Text);
+
         Tools.DeleteTemp();
     }
 
@@ -78,13 +80,9 @@ public partial class MainWindow : Window
 
             //move on to the next step and change text
             Tools.step++;
-            DRAGDROP.Text = "Drag and Drop the Background image";
+            DRAGDROP.Text = "Drag and Drop the Banner image";
             INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
         } else if(Tools.step == 1){
-            //create temp folder
-            Tools.CreateTemp();
-
-
             //get and store image
             var files = e.DataTransfer.TryGetFiles();
             var imgPath = files?[0].Path.LocalPath;

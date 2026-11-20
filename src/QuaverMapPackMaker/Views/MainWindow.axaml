@@ -77,17 +77,17 @@
             <StackPanel Grid.Row = "1">
                 <TextBlock  Text = "Set Pack Name" Margin = "50" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
-                <TextBox  Name = "packName" Margin = "-25" HorizontalAlignment = "Center"
+                <TextBox    Name = "packName" Margin = "-25" HorizontalAlignment = "Center"
                             FontSize = "25" Foreground = "#E0E0E0" FontWeight = "Bold">
-                            Enter Pack Name Here
+                            Sample Name
                 </TextBox>
 
 
                 <TextBlock  Text = "Set Creator" Margin = "50" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
-                <TextBox  Name = "creator" Margin = "-25" HorizontalAlignment = "Center"
+                <TextBox    Name = "creator" Margin = "-25" HorizontalAlignment = "Center"
                             FontSize = "25" Foreground = "#E0E0E0" FontWeight = "Bold">
-                            Enter Creator Here
+                            Sample Creator
                 </TextBox>
 
             </StackPanel>
@@ -106,7 +106,7 @@
                     DragDrop.Drop="OnDrop"
                     DragDrop.DragOver="OnDragOver">
                     
-                    <TextBlock  Name = "INSTRUCTIONS" FontSize = "30" 
+                    <TextBlock  Name = "INSTRUCTIONS" FontSize = "15" 
                                 FontWeight = "Bold" Foreground = "Black"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
