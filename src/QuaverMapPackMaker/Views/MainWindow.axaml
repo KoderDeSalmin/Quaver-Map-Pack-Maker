@@ -106,7 +106,7 @@
                     DragDrop.Drop="OnDrop"
                     DragDrop.DragOver="OnDragOver">
                     
-                    <TextBlock  Text="Drop files here" FontSize = "30" 
+                    <TextBlock  Name = "INSTRUCTIONS" FontSize = "30" 
                                 FontWeight = "Bold" Foreground = "Black"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>

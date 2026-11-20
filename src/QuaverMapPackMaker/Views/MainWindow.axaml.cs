@@ -1,9 +1,9 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Input;
-
 using System;
 using System.Diagnostics;
+using QuaverMapPackMaker.Helpers;
 
 
 
@@ -14,8 +14,11 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        //first status of text
         String dragText = "Drag and Drop the background image";
+        String instructions = "Drop ONE image file (PNG JPG JPEG)";
         DRAGDROP.Text = dragText;
+        INSTRUCTIONS.Text = instructions;
     }
 
 
@@ -30,13 +33,19 @@ public partial class MainWindow : Window
     private void OnDragOver(object? sender, DragEventArgs e)
     {
         // Accept file drops only; reject everything else
-        //check for the correct image afterwards
         if(e.DataTransfer.Contains(DataFormat.File)){
-            e.DragEffects = DragDropEffects.Copy;
+            //e.DragEffects = DragDropEffects.Copy;
+
+            //check file type
             var files = e.DataTransfer.TryGetFiles();
-            foreach (var file in files){
-                Debug.WriteLine(file.Path.LocalPath);
+            if(files?.Length == 1){
+                //correct extension
+                if(Tools.CheckIMG(files[0].Path.LocalPath)){
+                    e.DragEffects = DragDropEffects.Copy;
+                    Debug.WriteLine("YES");
+                }
             }
+
         } else{
             e.DragEffects = DragDropEffects.None;
         }
@@ -51,7 +60,7 @@ public partial class MainWindow : Window
             foreach (var file in files)
             {
                 var path = file.Path.LocalPath;
-                Debug.WriteLine(path);
+                //Debug.WriteLine(path);
             }
         }
     }
