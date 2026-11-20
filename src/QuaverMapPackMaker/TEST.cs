@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-
+using System.Diagnostics;
 
 using Quaver.API.Maps;
 
@@ -10,7 +10,7 @@ class Test{
     public static void MapCreateTest(){
         String currentDir = Directory.GetCurrentDirectory();
 
-        Console.WriteLine(currentDir);
+        Debug.WriteLine(currentDir);
 
         // var qua = Qua.Parse(sourcePath);
 
