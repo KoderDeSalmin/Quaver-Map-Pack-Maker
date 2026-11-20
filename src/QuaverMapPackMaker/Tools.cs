@@ -53,6 +53,10 @@ class Tools{
         targetDir = Path.Combine(tempDir, "target");
         sourceDir = Path.Combine(tempDir, "source");
 
+
+        Directory.CreateDirectory(targetDir);
+        Directory.CreateDirectory(sourceDir);
+
         Debug.WriteLine(tempDir);
     }
     //Delete the temp folder
