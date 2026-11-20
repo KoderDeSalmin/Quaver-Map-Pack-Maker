@@ -81,7 +81,7 @@ public partial class MainWindow : Window
             Tools.step++;
         }
         
-        Tools.DeleteTemp();
+        //Tools.DeleteTemp();
         
         // if (e.DataTransfer.TryGetFiles() is { } files)
         // {
