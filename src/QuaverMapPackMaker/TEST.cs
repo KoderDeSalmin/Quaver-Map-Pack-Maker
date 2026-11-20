@@ -4,9 +4,10 @@ using System.IO;
 
 using Quaver.API.Maps;
 
+namespace TestCode;
 
 class Test{
-    public static void Main(String[] args){
+    public static void MapCreateTest(){
         String currentDir = Directory.GetCurrentDirectory();
 
         Console.WriteLine(currentDir);
