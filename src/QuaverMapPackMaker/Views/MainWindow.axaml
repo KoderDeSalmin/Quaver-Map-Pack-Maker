@@ -19,7 +19,7 @@
     </Design.DataContext>
 
 
-    <Grid ShowGridLines="True">
+    <Grid>
 
         <!--  ROW / COLUMN DEFINITIONS  -->
         <Grid.ColumnDefinitions>
@@ -42,6 +42,8 @@
                     Grid.Column = "0" Margin = "15"/>
         <TextBlock  Text = "Special Thanks to A6sT" FontSize = "25" Foreground = "#E0E0E0" 
                     Grid.Column = "0" Margin = "15" VerticalAlignment = "Center"/>
+        <TextBlock  Text = "Version 0.1" FontSize = "25" Foreground = "#E0E0E0" 
+                    Grid.Column = "0" Margin = "15" VerticalAlignment = "Bottom"/>
 
         <!--  Column 0 END  --> 
         <!--  Column 1 START  -->
@@ -51,13 +53,7 @@
         <TextBlock  Text = "Quaver Map Pack Maker" FontSize = "65" Foreground = "#E0E0E0" 
                     Grid.Column  = "1" HorizontalAlignment = "Center" VerticalAlignment = "Center"/>
 
-        <!--  Column 1 END  --> 
-        <!--  Column 2 START  -->
-
-        <TextBlock  Text = "Version 0.1" FontSize = "25" Foreground = "#E0E0E0" 
-                    Grid.Column = "2" Margin = "15" HorizontalAlignment = "Right"/>
-
-        <!--  Column 2 END  -->             
+        <!--  Column 1 END  -->          
         <!--  ROW 0 END  -->
 
 
@@ -102,7 +98,7 @@
 
         <StackPanel Grid.Row = "1" Grid.Column = "1">
             <Border Background = "#969696" CornerRadius = "30" Margin = "60">
-                <TextBlock  Text = "Drag and Drop the background image" Margin = "10" HorizontalAlignment = "Center" 
+                <TextBlock  Name = "DRAGDROP" Margin = "10" HorizontalAlignment = "Center" 
                             FontSize = "35" FontWeight = "Bold" Foreground = "#222326"/>
             </Border>
             <Border Background="#585757" Padding="230" Margin = "25" CornerRadius = "25"
@@ -132,14 +128,10 @@
 
             <Border Background = "#969696" CornerRadius = "30" Margin = "25"
                     Grid.Row = "1" BackgroundSizing = "CenterBorder"/>
-            
-            <StackPanel Grid.Row = "1">
-                <TextBlock  Text = "Export Map" Margin = "90" HorizontalAlignment = "Center" 
-                            FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
-                <Button Content = "Export as qp" Width = "201" Height = "50"
+            <Button Content = "Export as qp" Width = "201" Height = "50"
                         FontSize = "30" FontWeight = "Bold" Foreground = "Black"
-                        Click = "Export" HorizontalAlignment = "Center" Margin = "-50"/>
-                </StackPanel>
+                        Click = "Export" HorizontalAlignment = "Center"
+                        Grid.Row = "1"/>
         </Grid>
 
         <!--  Column 2 END  --> 

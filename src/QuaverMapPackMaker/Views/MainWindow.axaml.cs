@@ -1,6 +1,8 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Input;
+
+using System;
 using System.Diagnostics;
 
 
@@ -12,6 +14,8 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        String dragText = "Drag and Drop the background image";
+        DRAGDROP.Text = dragText;
     }
 
 
