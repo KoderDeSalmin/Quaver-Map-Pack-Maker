@@ -31,12 +31,15 @@ class Tools{
     //Store Image
     public static void StoreIMG(String? imagePath){
         String? imageName = Path.GetFileName(imagePath);
+        if (string.IsNullOrWhiteSpace(imageName))
+            return;
 
+
+
+        imagePath = Path.GetDirectoryName(imagePath);
         if (string.IsNullOrWhiteSpace(imagePath))
             return;
 
-        if (string.IsNullOrWhiteSpace(imageName))
-            return;
 
         File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, imageName), true);
     }
