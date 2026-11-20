@@ -1,7 +1,8 @@
 using System;
-using System.IO;
 using Force.DeepCloner;
 using System.Diagnostics;
+
+
 
 using Quaver.API.Maps;
 
@@ -16,25 +17,24 @@ class Test{
         try{
             var qua = Qua.Parse(quaDir);
 
-
+        
             var newQUA = qua.DeepClone();
             
             newQUA.Title = "Test";
             newQUA.DifficultyName = "Test Diff";
             newQUA.Creator = "KoderDeSalmin";
 
-            newQUA.Save(outputDir);
-
-
+            if(qua.EqualByValue(newQUA));
             Debug.WriteLine($"Title: {qua.Title}");
             Debug.WriteLine($"Diffname: {qua.DifficultyName}");
             Debug.WriteLine($"Creator: {qua.Creator}");
-            
+            Console.WriteLine($"{qua.Serialize()}\n");
             Debug.WriteLine("-------");
 
             Debug.WriteLine($"Title: {newQUA.Title}");
             Debug.WriteLine($"Diffname: {newQUA.DifficultyName}");
             Debug.WriteLine($"Creator: {newQUA.Creator}");
+            Console.WriteLine($"{newQUA.Serialize()}");
             
         } catch (Exception e){
             Debug.WriteLine(e);
