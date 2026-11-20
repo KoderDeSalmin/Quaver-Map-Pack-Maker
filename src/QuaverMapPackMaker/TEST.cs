@@ -11,7 +11,7 @@ class Test{
     public static void MapCreateTest(){
         String quaDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1793049676000.qua";
         //String NewDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1780695855000.qua";
-        String outputDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map";
+        String outputDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1793049677000.qua";
 
         try{
             var qua = Qua.Parse(quaDir);
@@ -19,6 +19,12 @@ class Test{
 
             var newQUA = qua.DeepClone();
             
+            newQUA.Title = "Test";
+            newQUA.DifficultyName = "Test Diff";
+            newQUA.Creator = "KoderDeSalmin";
+
+            newQUA.Save(outputDir);
+
 
             Debug.WriteLine($"Title: {qua.Title}");
             Debug.WriteLine($"Diffname: {qua.DifficultyName}");
