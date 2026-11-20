@@ -5,9 +5,6 @@ using Quaver.API.Maps;
 
 /*
 a6st code snippet to merge files into a mappack (it works)
-
-
-
 */
 
 namespace TestCode;
