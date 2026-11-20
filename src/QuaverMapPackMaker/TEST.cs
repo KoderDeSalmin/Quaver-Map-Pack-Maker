@@ -1,49 +1,78 @@
 using System;
 using System.IO;
-using Force.DeepCloner;
-using System.Diagnostics;
-
+using System.IO.Compression;
 using Quaver.API.Maps;
+
 
 namespace TestCode;
 
 class Test{
-    public static void MapCreateTest(){
-        String quaDir = "C:\\Users\\koder\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1793049676000.qua";
-        //String outputDir = "C:\\Users\\koder\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map";
+    public static void MergeMapset(string[] args)
+    {       
+        
+        // Your parameters
+        var targetQp = args[0]; // path to Reference .qp file
+        var sourceQp = args[1]; // path to .qp file to merge
+        var outputQp = args[2]; // path to where we create the merged .qp file
+        var mapsetName = args[3]; // if you want to give a custom name to your mapset
+        var creator = args[4]; // if you want to set custom creator name
 
-        try{
-            var qua = Qua.Parse(quaDir);
+        // Create temp directory to prevent file conflict
+        var temp = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+        var target = Path.Combine(temp, "target");
+        var source = Path.Combine(temp, "source");
 
+        Directory.CreateDirectory(target);
+        Directory.CreateDirectory(source);
 
-            var newQUA = qua.DeepClone();
-            
-            newQUA.Title = "Test";
-            newQUA.DifficultyName = "Test Diff";
-            newQUA.Creator = "KoderDeSalmin";
+        // Extract .qp files to these directory
+        ZipFile.ExtractToDirectory(targetQp, target);
+        ZipFile.ExtractToDirectory(sourceQp, source);
 
-            Debug.WriteLine($"Title: {qua.Title}");
-            Debug.WriteLine($"Diffname: {qua.DifficultyName}");
-            Debug.WriteLine($"Creator: {qua.Creator}");
-            
-            Debug.WriteLine("-------");
+        // Extract all assets from merging .qp file
+        var index = 0;
+        foreach (var file in Directory.GetFiles(source, "*.qua")) // This loops on every .qua files from source folder
+        {
+            var qua = Qua.Parse(file);
+            qua.AudioFile = CopyAsset(qua.AudioFile, source, target);
+            qua.BackgroundFile = CopyAsset(qua.BackgroundFile, source, target);
+            qua.BannerFile = CopyAsset(qua.BannerFile, source, target);
 
-            Debug.WriteLine($"Title: {newQUA.Title}");
-            Debug.WriteLine($"Diffname: {newQUA.DifficultyName}");
-            Debug.WriteLine($"Creator: {newQUA.Creator}");
-            
-        } catch (Exception e){
-            Debug.WriteLine(e);
+            // Saved inside the temporary Reference folder
+            qua.Save(Path.Combine(target, $"imported-{index++}.qua"));
         }
 
-        // qua.MapId = -1;
-        // qua.DifficultyName = "TEST";
+        // Convert all difficulties from Reference folder into a single mapset
+        foreach (var file in Directory.GetFiles(target, "*.qua"))
+        {
+            var qua = Qua.Parse(file);
+            var song = string.IsNullOrWhiteSpace(qua.Artist) ? qua.Title : $"{qua.Artist} - {qua.Title}";
+            var difficulty = string.IsNullOrWhiteSpace(qua.DifficultyName) ? "Difficulty" : qua.DifficultyName;
 
-        // if (createBlankDifficulty)
-        //      qua.HitObjects.Clear();
+            qua.MapId = -1;
+            qua.MapSetId = -1;
+            qua.DifficultyName = $"{song} [{difficulty}] [Map Pack]"; // We use a custom difficulty name to prevent duplication detection from quaver if one of the difficulty already exists in the user's game
+            qua.Artist = "Various Artists";
+            qua.Title = mapsetName;
+            qua.Creator = creator;
 
-        // qua.Save(outputDir);
+            qua.Save(file);
+        }
 
+        // We convert that file into a zip folder, renamed into a .qp file at output path (if named so in arg, you could use any file extension you want in theory)
+        ZipFile.CreateFromDirectory(target, outputQp);
+        Directory.Delete(temp, true); // delete temp folder
+        Console.WriteLine($"Created {outputQp}");
+    }
 
+    // Util function to move .qp asset files to said directory
+    static string CopyAsset(string? name, string source, string target)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            return "";
+
+        var newName = $"imported_{Path.GetFileName(name)}";
+        File.Copy(Path.Combine(source, name), Path.Combine(target, newName), true);
+        return newName;
     }
 }
