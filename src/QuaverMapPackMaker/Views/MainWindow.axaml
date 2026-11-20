@@ -90,7 +90,7 @@
                 <TextBlock  Text = "Set Creator" Margin = "50" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
                 <TextBox  Name = "creator" Margin = "-25" HorizontalAlignment = "Center"
-                            FontSize = "25" Foreground = "#222326" FontWe ight = "Bold">
+                            FontSize = "25" Foreground = "#222326" FontWeight = "Bold">
                             Enter Creator Here
                 </TextBox>
 
