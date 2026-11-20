@@ -30,9 +30,13 @@ public partial class MainWindow : Window
     private void OnDragOver(object? sender, DragEventArgs e)
     {
         // Accept file drops only; reject everything else
-        e.DragEffects = e.DataTransfer.Contains(DataFormat.File)
-            ? DragDropEffects.Copy
-            : DragDropEffects.None;
+        if(e.DragEffects.Equals(e.DataTransfer.Contains(DataFormat.File))){
+            //DragDropEffects.Copy;
+            Debug.WriteLine(e.DragEffects);
+            Debug.WriteLine(e.DataTransfer.Contains(DataFormat.File));
+        } else{
+            //DragDropEffects.None;
+        }
     }
 
 
