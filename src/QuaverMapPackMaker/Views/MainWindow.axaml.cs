@@ -33,7 +33,7 @@ public partial class MainWindow : Window
         //check for the correct image afterwards
         if(e.DataTransfer.Contains(DataFormat.File)){
             e.DragEffects = DragDropEffects.Copy;
-            var files? = e.DataTransfer.TryGetFiles();
+            var files = e.DataTransfer.TryGetFiles();
             foreach (var file in files){
                 Debug.WriteLine(file.Path.LocalPath);
             }
