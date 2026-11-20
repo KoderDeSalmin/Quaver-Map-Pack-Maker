@@ -103,14 +103,15 @@
         <StackPanel Grid.Row = "1" Grid.Column = "1">
             <Border Background = "#969696" CornerRadius = "30" Margin = "60">
                 <TextBlock  Text = "Drag and Drop the background image" Margin = "10" HorizontalAlignment = "Center" 
-                            FontSize = "35" FontWeight = "Bold" />
+                            FontSize = "35" FontWeight = "Bold" Foreground = "#222326"/>
             </Border>
             <Border Background="#585757" Padding="230" Margin = "25" CornerRadius = "25"
                     DragDrop.AllowDrop="True"
                     DragDrop.Drop="OnDrop"
                     DragDrop.DragOver="OnDragOver">
                     
-                    <TextBlock  Text="Drop files here" FontSize = "30" FontWeight = "Bold"
+                    <TextBlock  Text="Drop files here" FontSize = "30" 
+                                FontWeight = "Bold" Foreground = "Black"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
         </StackPanel>
@@ -135,7 +136,7 @@
             <StackPanel Grid.Row = "1">
                 <TextBlock  Text = "Export Map" Margin = "90" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
-                <Button Content = "Export as qp" Width = "200" Height = "50"
+                <Button Content = "Export as qp" Width = "201" Height = "50"
                         FontSize = "30" FontWeight = "Bold" Foreground = "Black"
                         Click = "Export" HorizontalAlignment = "Center" Margin = "-50"/>
                 </StackPanel>
