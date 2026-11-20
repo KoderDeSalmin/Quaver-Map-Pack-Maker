@@ -9,8 +9,8 @@ namespace TestCode;
 
 class Test{
     public static void MapCreateTest(){
-        String quaDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1793049676000.qua";
-        //String outputDir = "C:\\Users\\codys\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map";
+        String quaDir = "C:\\Users\\koder\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map\\1793049676000.qua";
+        //String outputDir = "C:\\Users\\koder\\Downloads\\Code\\C#\\Project\\QuaverMapPackMaker\\src\\QuaverMapPackMaker\\map";
 
         try{
             var qua = Qua.Parse(quaDir);
