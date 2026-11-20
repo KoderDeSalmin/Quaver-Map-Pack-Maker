@@ -13,15 +13,14 @@ public partial class MainWindow : Window
     public MainWindow(){
         InitializeComponent();
         //first status of text
-        String dragText = "Drag and Drop the background image";
-        String instructions = "Drop ONE image file (PNG JPG JPEG)";
-        DRAGDROP.Text = dragText;
-        INSTRUCTIONS.Text = instructions;
+        DRAGDROP.Text = "Drag and Drop the background image";
+        INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
     }
 
 
     //Function For button press
     private void Export(object? o, RoutedEventArgs e){
+        Tools.DeleteTemp();
     }
 
 
@@ -51,12 +50,12 @@ public partial class MainWindow : Window
                     }
                 }
             } else{
-
+                //QP FILES
+                //Cases will be checked in another function, we only need to check if files are dropped.
+                //(They could accidentally drop 9 qp then 1 xyz file)
+                //We will check for that in the OnDrag Function / a helper function
+                e.DragEffects = DragDropEffects.Copy;
             }
-
-
-
-
         } else{
             e.DragEffects = DragDropEffects.None;
         }
@@ -77,19 +76,32 @@ public partial class MainWindow : Window
             Tools.StoreIMG(imgPath);
 
 
-            //move on to the next step
+            //move on to the next step and change text
             Tools.step++;
+            DRAGDROP.Text = "Drag and Drop the Background image";
+            INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
+        } else if(Tools.step == 1){
+            //create temp folder
+            Tools.CreateTemp();
+
+
+            //get and store image
+            var files = e.DataTransfer.TryGetFiles();
+            var imgPath = files?[0].Path.LocalPath;
+            Tools.StoreIMG(imgPath);
+
+
+            //move on to the next step and change text
+            Tools.step++;
+            DRAGDROP.Text = "Drag and Drop the QPs";
+            INSTRUCTIONS.Text = "Drop your QP files here";
+        }   else{
+            if (e.DataTransfer.TryGetFiles() is { } files){
+                foreach (var file in files){
+                    var path = file.Path.LocalPath;
+                    Debug.WriteLine(path);
+                }
+            }
         }
-        
-        Tools.DeleteTemp();
-        
-        // if (e.DataTransfer.TryGetFiles() is { } files)
-        // {
-        //     foreach (var file in files)
-        //     {
-        //         var path = file.Path.LocalPath;
-        //         Debug.WriteLine(path);
-        //     }
-        // }
     }
 }

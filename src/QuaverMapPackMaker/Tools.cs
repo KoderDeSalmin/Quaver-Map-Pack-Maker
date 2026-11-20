@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Diagnostics;
+using QuaverMapPackMaker.Info;
 using Quaver.API.Maps;
 
 
@@ -40,7 +41,8 @@ class Tools{
         if (string.IsNullOrWhiteSpace(imagePath))
             return;
 
-
+        MapsetInfo.Image = imageName;
+        MapsetInfo.ImagePath = imagePath;
         File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, imageName), true);
     }
 
