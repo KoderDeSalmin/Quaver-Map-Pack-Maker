@@ -36,34 +36,34 @@
 
 
         <!--  ROW 0 START  -->
-        <!--  Column 1 START  -->
+        <!--  Column 0 START  -->
 
         <TextBlock  Text = "By KoderDeSalmin" FontSize = "25" Foreground = "#E0E0E0" 
                     Grid.Column = "0" Margin = "15"/>
         <TextBlock  Text = "Special Thanks to A6sT" FontSize = "25" Foreground = "#E0E0E0" 
                     Grid.Column = "0" Margin = "15" VerticalAlignment = "Center"/>
 
-        <!--  Column 1 END  --> 
-        <!--  Column 2 START  -->
+        <!--  Column 0 END  --> 
+        <!--  Column 1 START  -->
 
         <Border Background = "Black" CornerRadius = "50" Margin = "10"
                 Grid.Column = "1"/>
         <TextBlock  Text = "Quaver Map Pack Maker" FontSize = "65" Foreground = "#E0E0E0" 
                     Grid.Column  = "1" HorizontalAlignment = "Center" VerticalAlignment = "Center"/>
 
-        <!--  Column 2 END  --> 
-        <!--  Column 3 START  -->
+        <!--  Column 1 END  --> 
+        <!--  Column 2 START  -->
 
         <TextBlock  Text = "Version 0.1" FontSize = "25" Foreground = "#E0E0E0" 
                     Grid.Column = "2" Margin = "15" HorizontalAlignment = "Right"/>
 
-        <!--  Column 3 END  -->             
+        <!--  Column 2 END  -->             
         <!--  ROW 0 END  -->
 
 
 
         <!--  ROW 1 START  -->
-        <!--  Column 1 START  -->
+        <!--  Column 0 START  -->
         <Grid Grid.Row = "1" Grid.Column = "0">
 
             <!--  ROW DEFINITIONS  -->
@@ -82,7 +82,7 @@
                 <TextBlock  Text = "Set Pack Name" Margin = "50" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
                 <TextBox  Name = "packName" Margin = "-25" HorizontalAlignment = "Center"
-                            FontSize = "25" Foreground = "#222326" FontWeight = "Bold">
+                            FontSize = "25" Foreground = "#E0E0E0" FontWeight = "Bold">
                             Enter Pack Name Here
                 </TextBox>
 
@@ -90,15 +90,15 @@
                 <TextBlock  Text = "Set Creator" Margin = "50" HorizontalAlignment = "Center" 
                             FontSize = "30" Foreground = "#222326" FontWeight = "Bold" />
                 <TextBox  Name = "creator" Margin = "-25" HorizontalAlignment = "Center"
-                            FontSize = "25" Foreground = "#222326" FontWeight = "Bold">
+                            FontSize = "25" Foreground = "#E0E0E0" FontWeight = "Bold">
                             Enter Creator Here
                 </TextBox>
 
             </StackPanel>
         </Grid>
 
-        <!--  Column 1 END  --> 
-        <!--  Column 2 START  -->
+        <!--  Column 0 END  --> 
+        <!--  Column 1 START  -->
 
         <StackPanel Grid.Row = "1" Grid.Column = "1">
             <Border Background = "#969696" CornerRadius = "30" Margin = "60">
@@ -116,8 +116,8 @@
                 </Border>
         </StackPanel>
 
-        <!--  Column 2 END  -->
-        <!--  Column 3 START  -->
+        <!--  Column 1 END  -->
+        <!--  Column 2 START  -->
 
         <Grid Grid.Row = "1" Grid.Column = "2">
 
@@ -142,7 +142,7 @@
                 </StackPanel>
         </Grid>
 
-        <!--  Column 3 END  --> 
+        <!--  Column 2 END  --> 
         <!--  ROW 1 END  -->
     </Grid>
 </Window>
