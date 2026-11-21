@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Input;
 using System;
+using System.Diagnostics;
 using QuaverMapPackMaker.Helpers;
 
 namespace QuaverMapPackMaker.Views;
@@ -105,7 +106,11 @@ public partial class MainWindow : Window
                 foreach (var file in files){
                     var qpPath = file.Path.LocalPath;
                     if(Tools.CheckQP(qpPath)){
-                        Merge.StoreFiles(qpPath);
+                        try{
+                            Merge.StoreFiles(qpPath);
+                        } catch(Exception error){
+                            Debug.WriteLine(error);
+                        }
                     }
                 }
             }

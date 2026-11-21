@@ -24,7 +24,12 @@ class Merge{
     
 
     public static void Combine(){
-        
+        try{
+            DelImg();
+        } catch (Exception error){
+            Debug.WriteLine(error);
+        }
+
         foreach (var file in Directory.GetFiles(Tools.sourceDir, "*.qua")) // This loops on every .qua files from source folder
         {
             if(!Path.GetFileName(file).Substring(0,8).Equals("Imported")){
@@ -43,6 +48,7 @@ class Merge{
 
 
         // Convert all difficulties from Reference folder into a single mapset
+        // Credit: A6sT, Small edits from Koder
         foreach (var file in Directory.GetFiles(Tools.targetDir, "*.qua"))
         {   
             if(!Path.GetFileName(file).Substring(0,8).Equals("Imported")){
@@ -63,6 +69,23 @@ class Merge{
             }
         }
     }
+
+    public static void DelImg(){
+        foreach (var file in Directory.GetFiles(Tools.sourceDir, "*.png")) // This loops on every .qua files from source folder
+        {
+            File.Delete(file);
+        }
+        foreach (var file in Directory.GetFiles(Tools.sourceDir, "*.jpg")) // This loops on every .qua files from source folder
+        {
+            File.Delete(file);
+        }
+        foreach (var file in Directory.GetFiles(Tools.sourceDir, "*.jpeg")) // This loops on every .qua files from source folder
+        {
+            File.Delete(file);
+        }
+    }
+
+
 
     public static void Export(){
         String outputDir = Path.Combine(Directory.GetCurrentDirectory(), $"{MapsetInfo.Name}.qp");
