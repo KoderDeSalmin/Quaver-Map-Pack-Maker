@@ -40,6 +40,9 @@ public partial class MainWindow : Window
             Tools.SetName(packName.Text);
             Tools.SetCreator(creator.Text);
             Tools.SetConfirmation(true);
+
+            Debug.WriteLine(packName.Text);
+            Debug.WriteLine(creator.Text);
         }
     }
 
