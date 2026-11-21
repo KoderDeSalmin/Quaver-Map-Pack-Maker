@@ -57,12 +57,12 @@ class Merge{
         {   
             if(!Path.GetFileName(file).Substring(0,8).Equals("Imported")){
                 var qua = Qua.Parse(file);
-                var song = string.IsNullOrWhiteSpace(qua.Artist) ? qua.Title : $"{qua.Artist} - {qua.Title}";
+                //var song = string.IsNullOrWhiteSpace(qua.Artist) ? qua.Title : $"{qua.Artist} - {qua.Title}";
                 var difficulty = string.IsNullOrWhiteSpace(qua.DifficultyName) ? "Difficulty" : qua.DifficultyName;
 
                 qua.MapId = -1;
                 qua.MapSetId = -1;
-                qua.DifficultyName = $"{song} [{qua.Creator}]"; // We use a custom difficulty name to prevent duplication detection from quaver if one of the difficulty already exists in the user's game
+                qua.DifficultyName = $"{qua.Title} [{qua.Creator}]"; // We use a custom difficulty name to prevent duplication detection from quaver if one of the difficulty already exists in the user's game
                 qua.Artist = "Various Artists";
                 qua.Title = MapsetInfo.Name;
                 qua.Creator = MapsetInfo.Creator;
