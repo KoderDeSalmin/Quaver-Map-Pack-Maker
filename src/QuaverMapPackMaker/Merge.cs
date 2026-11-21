@@ -18,9 +18,15 @@ class Merge{
 
         ZipFile.ExtractToDirectory(qpPath, Tools.sourceDir);
         Combine();
+        ClearSource();
     }
 
-    
+
+    //Clear the source directory for the next import
+    public static void ClearSource(){
+        Directory.Delete(Tools.sourceDir, true);
+        Directory.CreateDirectory(Tools.sourceDir);
+    }
 
     public static void Combine(){
         try{
@@ -29,15 +35,16 @@ class Merge{
             Debug.WriteLine(error);
         }
 
+
+        // Extract audio and qp files
+        // Credit: A6sT, Small edits from Koder
         foreach (var file in Directory.GetFiles(Tools.sourceDir, "*.qua")) // This loops on every .qua files from source folder
         {
-            if(!Path.GetFileName(file).Substring(0,8).Equals("Imported")){
-                var qua = Qua.Parse(file);
-                qua.AudioFile = CopyAsset(qua.AudioFile, Tools.sourceDir, Tools.targetDir);
+            var qua = Qua.Parse(file);
+            qua.AudioFile = CopyAsset(qua.AudioFile, Tools.sourceDir, Tools.targetDir);
 
-                // Saved inside the temporary Reference folder
-                qua.Save(Path.Combine(Tools.targetDir, $"imported-{idx++}.qua"));
-            }
+            // Saved inside the temporary Reference folder
+            qua.Save(Path.Combine(Tools.targetDir, $"imported-{idx++}.qua"));
         }
         
 
