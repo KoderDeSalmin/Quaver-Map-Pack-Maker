@@ -61,7 +61,7 @@ class Merge{
             //var song = string.IsNullOrWhiteSpace(qua.Artist) ? qua.Title : $"{qua.Artist} - {qua.Title}";
             var difficulty = string.IsNullOrWhiteSpace(qua.DifficultyName) ? "Difficulty" : qua.DifficultyName;
 
-
+            Debug.WriteLine($"{qua.Title}     {MapsetInfo.Name}");
             if(!qua.Title.Equals(MapsetInfo.Name)){
                 qua.MapId = -1;
                 qua.MapSetId = -1;
