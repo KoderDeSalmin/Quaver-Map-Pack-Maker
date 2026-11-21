@@ -49,7 +49,7 @@ class Tools{
 
 
         imagePath = Path.GetDirectoryName(imagePath);
-        Debug.WriteLine(imagePath);
+
         if (string.IsNullOrWhiteSpace(imagePath))
             return;
         
@@ -57,13 +57,13 @@ class Tools{
             case 0:
             MapsetInfo.Background = imageName;
             MapsetInfo.BackgroundPath = imagePath;
-            Debug.WriteLine(Path.GetExtension(imageName));
+            
             File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, $"BACKGROUNDIMAGE{Path.GetExtension(imageName)}"), true);
             break;
             case 1:
             MapsetInfo.Banner = imageName;
             MapsetInfo.BannerPath = imagePath;
-            Debug.WriteLine(Path.GetExtension(imageName));
+            
             File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, $"BANNERIMAGE{Path.GetExtension(imageName)}"), true);
             break;
         }
@@ -93,7 +93,5 @@ class Tools{
 
         Directory.CreateDirectory(targetDir);
         Directory.CreateDirectory(sourceDir);
-
-        Debug.WriteLine(tempDir);
     }
 }
