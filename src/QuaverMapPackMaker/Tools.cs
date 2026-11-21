@@ -93,9 +93,4 @@ class Tools{
 
         Debug.WriteLine(tempDir);
     }
-    //Delete the temp folder
-    public static void DeleteTemp(){
-        // delete temp folder
-        Directory.Delete(tempDir, true); 
-    }
 }
