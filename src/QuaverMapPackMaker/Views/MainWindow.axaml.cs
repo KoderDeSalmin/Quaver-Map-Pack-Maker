@@ -14,6 +14,7 @@ public partial class MainWindow : Window
         //first status of text
         DRAGDROP.Text = "Drag and Drop the background image";
         INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
+        DISCLAIMER.Text = "You must confirm name before draggin QP files";
         //initialize name
         Tools.SetName(packName.Text);
         Tools.SetCreator(creator.Text);
