@@ -2,7 +2,6 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Input;
 using System;
-using System.Diagnostics;
 using QuaverMapPackMaker.Helpers;
 
 namespace QuaverMapPackMaker.Views;
@@ -21,7 +20,8 @@ public partial class MainWindow : Window
     private void Export(object? o, RoutedEventArgs e){
         Tools.SetName(packName.Text);
         Tools.SetCreator(creator.Text);
-
+        //
+        
 
         //Delete temp folders and reset step to reset program.
         Tools.DeleteTemp();

@@ -74,8 +74,7 @@ class Test{
     }
 
     // Util function to move .qp asset files to said directory
-    static string CopyAsset(string? name, string source, string target)
-    {
+    static string CopyAsset(string? name, string source, string target){
         if (string.IsNullOrWhiteSpace(name))
             return "";
 

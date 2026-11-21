@@ -79,13 +79,7 @@ class Tools{
     }
 
 
-
-
-
-
-
-
-
+    
     public static void SetCreator(String? creator){
         if (string.IsNullOrWhiteSpace(creator)){
             creator = "someone";
