@@ -1,19 +1,15 @@
 using System;
 using System.IO;
 using System.Diagnostics;
-using QuaverMapPackMaker.Info;
-using Quaver.API.Maps;
-
 
 namespace QuaverMapPackMaker.Helpers;
 
 class Tools{
-    private static String tempDir = "";
-    private static String targetDir = "";
-    private static String sourceDir = "";
+    public static String tempDir = "";
+    public static String targetDir = "";
+    public static String sourceDir = "";
 
     public static int step = 0;
-    public static bool qpStored = false;
 
 
     //Check file extension for images
@@ -46,40 +42,21 @@ class Tools{
         imagePath = Path.GetDirectoryName(imagePath);
         if (string.IsNullOrWhiteSpace(imagePath))
             return;
-
-        MapsetInfo.Image = imageName;
-        MapsetInfo.ImagePath = imagePath;
-        File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, imageName), true);
-    }
-    //Store QP
-    public static void StoreQP(String? qpPath){
-        if(!qpStored){
-            String? qpName = Path.GetFileName(qpPath);
-            if (string.IsNullOrWhiteSpace(qpName))
-                return;
-
-            qpPath = Path.GetDirectoryName(qpPath);
-            if (string.IsNullOrWhiteSpace(qpPath))
-                return;
-            
-            File.Copy(Path.Combine(qpPath, qpName), Path.Combine(targetDir, qpName), true);
-            qpStored = true;
-        } else{
-            String? qpName = Path.GetFileName(qpPath);
-            if (string.IsNullOrWhiteSpace(qpName))
-                return;
-
-            qpPath = Path.GetDirectoryName(qpPath);
-            if (string.IsNullOrWhiteSpace(qpPath))
-                return;
-            
-            File.Copy(Path.Combine(qpPath, qpName), Path.Combine(sourceDir, qpName), true);
-            qpStored = true;
+        
+        switch (step){
+            case 0:
+            MapsetInfo.Background = imageName;
+            MapsetInfo.BackgroundPath = imagePath;
+            File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, $"BACKGROUNDIMAGE{Path.GetExtension(imagePath)}"), true);
+            break;
+            case 1:
+            MapsetInfo.Banner = imageName;
+            MapsetInfo.BannerPath = imagePath;
+            File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, $"BANNERIMAGE{Path.GetExtension(imagePath)}"), true);
+            break;
         }
     }
 
-
-    
     public static void SetCreator(String? creator){
         if (string.IsNullOrWhiteSpace(creator)){
             creator = "someone";

@@ -17,7 +17,6 @@ namespace TestCode;
 class Test{
     public static void MergeMapset(string[] args)
     {       
-        
         // Your parameters
         var targetQp = args[0]; // path to Reference .qp file
         var sourceQp = args[1]; // path to .qp file to merge
@@ -37,6 +36,11 @@ class Test{
         ZipFile.ExtractToDirectory(targetQp, target);
         ZipFile.ExtractToDirectory(sourceQp, source);
 
+
+
+
+
+
         // Extract all assets from merging .qp file
         var index = 0;
         foreach (var file in Directory.GetFiles(source, "*.qua")) // This loops on every .qua files from source folder
@@ -49,6 +53,12 @@ class Test{
             // Saved inside the temporary Reference folder
             qua.Save(Path.Combine(target, $"imported-{index++}.qua"));
         }
+
+
+
+
+
+
 
         // Convert all difficulties from Reference folder into a single mapset
         foreach (var file in Directory.GetFiles(target, "*.qua"))

@@ -21,12 +21,12 @@ public partial class MainWindow : Window
         Tools.SetName(packName.Text);
         Tools.SetCreator(creator.Text);
         //
-        
+        Merge.Export();
 
         //Delete temp folders and reset step to reset program.
         Tools.DeleteTemp();
         Tools.step = 0;
-        Tools.qpStored = false;
+        Merge.qpStored = false;
         DRAGDROP.Text = "Drag and Drop the background image";
         INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
     }
@@ -105,7 +105,7 @@ public partial class MainWindow : Window
                 foreach (var file in files){
                     var qpPath = file.Path.LocalPath;
                     if(Tools.CheckQP(qpPath)){
-                        Tools.StoreQP(qpPath);
+                        Merge.StoreFiles(qpPath);
                     }
                 }
             }
