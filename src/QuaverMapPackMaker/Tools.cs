@@ -49,6 +49,7 @@ class Tools{
 
 
         imagePath = Path.GetDirectoryName(imagePath);
+        Debug.WriteLine(imagePath);
         if (string.IsNullOrWhiteSpace(imagePath))
             return;
         
