@@ -35,8 +35,6 @@ class Merge{
             if(!Path.GetFileName(file).Substring(0,8).Equals("Imported")){
                 var qua = Qua.Parse(file);
                 qua.AudioFile = CopyAsset(qua.AudioFile, Tools.sourceDir, Tools.targetDir);
-                qua.BackgroundFile = CopyAsset(qua.BackgroundFile, Tools.sourceDir, Tools.targetDir);
-                qua.BannerFile = CopyAsset(qua.BannerFile, Tools.sourceDir, Tools.targetDir);
 
                 // Saved inside the temporary Reference folder
                 qua.Save(Path.Combine(Tools.targetDir, $"imported-{idx++}.qua"));
