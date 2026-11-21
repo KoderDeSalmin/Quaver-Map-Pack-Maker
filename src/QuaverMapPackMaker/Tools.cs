@@ -56,13 +56,11 @@ class Tools{
         switch (step){
             case 0:
             MapsetInfo.Background = $"BACKGROUNDIMAGE{Path.GetExtension(imageName)}";
-            MapsetInfo.BackgroundPath = imagePath;
             
             File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, $"BACKGROUNDIMAGE{Path.GetExtension(imageName)}"), true);
             break;
             case 1:
             MapsetInfo.Banner = $"BANNERIMAGE{Path.GetExtension(imageName)}";
-            MapsetInfo.BannerPath = imagePath;
             
             File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, $"BANNERIMAGE{Path.GetExtension(imageName)}"), true);
             break;

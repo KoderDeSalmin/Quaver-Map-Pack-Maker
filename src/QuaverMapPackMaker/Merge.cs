@@ -104,8 +104,15 @@ class Merge{
         ZipFile.CreateFromDirectory(Tools.targetDir, outputQP);
         //Directory.Delete(Tools.tempDir, true); // delete temp folder
         Debug.WriteLine($"Created {outputQP}");
-    }
 
+        //Bandaid solution to the duplicate diff issue, will find a real solution later
+        foreach (var file in Directory.GetFiles(Tools.targetDir)){
+            if(!Path.GetFileName(file).Substring(0,8).Equals("Imported"))
+                if(!Path.GetExtension(file).Equals(Path.GetExtension(MapsetInfo.Banner)) || !Path.GetExtension(file).Equals(Path.GetExtension(MapsetInfo.Background)))
+                    File.Delete(file);
+        }
+    }
+    
 
     // Util function to move .qp asset files to said directory
     // Credit: A6sT
