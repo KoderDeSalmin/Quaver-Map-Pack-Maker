@@ -22,7 +22,7 @@ public partial class MainWindow : Window
         Tools.SetName(packName.Text);
         Tools.SetCreator(creator.Text);
         //
-        Merge.Export();
+        //Merge.Export();
 
         //Delete temp folders and reset step to reset program.
         Tools.DeleteTemp();
