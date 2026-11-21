@@ -44,7 +44,7 @@ class Merge{
             qua.AudioFile = CopyAsset(qua.AudioFile, Tools.sourceDir, Tools.targetDir);
 
             // Saved inside the temporary Reference folder
-            qua.Save(Path.Combine(Tools.targetDir, $"imported-{idx++}.qua"));
+            qua.Save(Path.Combine(Tools.targetDir, $"imported_{idx++}.qua"));
         }
         
 
@@ -101,9 +101,6 @@ class Merge{
             File.Delete(outputQP);
         
 
-        ZipFile.CreateFromDirectory(Tools.targetDir, outputQP);
-        //Directory.Delete(Tools.tempDir, true); // delete temp folder
-        Debug.WriteLine($"Created {outputQP}");
 
         //Bandaid solution to the duplicate diff issue, will find a real solution later
         foreach (var file in Directory.GetFiles(Tools.targetDir)){
@@ -111,6 +108,14 @@ class Merge{
                 if(!Path.GetExtension(file).Equals(Path.GetExtension(MapsetInfo.Banner)) || !Path.GetExtension(file).Equals(Path.GetExtension(MapsetInfo.Background)))
                     File.Delete(file);
         }
+
+
+
+        ZipFile.CreateFromDirectory(Tools.targetDir, outputQP);
+        //Directory.Delete(Tools.tempDir, true); // delete temp folder
+        Debug.WriteLine($"Created {outputQP}");
+
+        
     }
     
 
