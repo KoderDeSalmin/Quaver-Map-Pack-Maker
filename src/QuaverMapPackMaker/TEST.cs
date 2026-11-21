@@ -5,6 +5,11 @@ using Quaver.API.Maps;
 
 /*
 a6st code snippet to merge files into a mappack (it works)
+
+Take 1 qp add it to target
+
+
+every other qp goes in source
 */
 
 namespace TestCode;

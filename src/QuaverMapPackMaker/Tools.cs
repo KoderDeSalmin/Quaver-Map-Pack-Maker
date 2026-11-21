@@ -13,7 +13,7 @@ class Tools{
     private static String sourceDir = "";
 
     public static int step = 0;
-
+    public static bool qpStored = false;
 
 
     //Check file extension for images
@@ -52,8 +52,30 @@ class Tools{
         File.Copy(Path.Combine(imagePath, imageName), Path.Combine(targetDir, imageName), true);
     }
     //Store QP
-    public static void StoreQP(String qpPath){
+    public static void StoreQP(String? qpPath){
+        if(!qpStored){
+            String? qpName = Path.GetFileName(qpPath);
+            if (string.IsNullOrWhiteSpace(qpName))
+                return;
 
+            qpPath = Path.GetDirectoryName(qpPath);
+            if (string.IsNullOrWhiteSpace(qpPath))
+                return;
+            
+            File.Copy(Path.Combine(qpPath, qpName), Path.Combine(targetDir, qpName), true);
+            qpStored = true;
+        } else{
+            String? qpName = Path.GetFileName(qpPath);
+            if (string.IsNullOrWhiteSpace(qpName))
+                return;
+
+            qpPath = Path.GetDirectoryName(qpPath);
+            if (string.IsNullOrWhiteSpace(qpPath))
+                return;
+            
+            File.Copy(Path.Combine(qpPath, qpName), Path.Combine(sourceDir, qpName), true);
+            qpStored = true;
+        }
     }
 
 

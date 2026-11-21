@@ -26,6 +26,7 @@ public partial class MainWindow : Window
         //Delete temp folders and reset step to reset program.
         Tools.DeleteTemp();
         Tools.step = 0;
+        Tools.qpStored = false;
         DRAGDROP.Text = "Drag and Drop the background image";
         INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
     }
