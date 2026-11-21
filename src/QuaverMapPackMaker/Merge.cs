@@ -61,17 +61,19 @@ class Merge{
             //var song = string.IsNullOrWhiteSpace(qua.Artist) ? qua.Title : $"{qua.Artist} - {qua.Title}";
             var difficulty = string.IsNullOrWhiteSpace(qua.DifficultyName) ? "Difficulty" : qua.DifficultyName;
 
-            qua.MapId = -1;
-            qua.MapSetId = -1;
-            qua.DifficultyName = $"{qua.Title} [{qua.Creator}]"; // We use a custom difficulty name to prevent duplication detection from quaver if one of the difficulty already exists in the user's game
-            qua.Artist = "Various Artists";
-            qua.Title = MapsetInfo.Name;
-            qua.Creator = MapsetInfo.Creator;
-            qua.BackgroundFile = MapsetInfo.Background;
-            qua.BannerFile = MapsetInfo.Banner;
 
-            qua.Save(file);
-            
+            if(!qua.Title.Equals(MapsetInfo.Name)){
+                qua.MapId = -1;
+                qua.MapSetId = -1;
+                qua.DifficultyName = $"{qua.Title} [{qua.Creator}]"; // We use a custom difficulty name to prevent duplication detection from quaver if one of the difficulty already exists in the user's game
+                qua.Artist = "Various Artists";
+                qua.Title = MapsetInfo.Name;
+                qua.Creator = MapsetInfo.Creator;
+                qua.BackgroundFile = MapsetInfo.Background;
+                qua.BannerFile = MapsetInfo.Banner;
+
+                qua.Save(file);
+            }
         }
     }
 
