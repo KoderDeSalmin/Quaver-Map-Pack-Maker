@@ -33,6 +33,7 @@ public partial class MainWindow : Window
         Merge.qpStored = false;
         DRAGDROP.Text = "Drag and Drop the background image";
         INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
+        DISCLAIMER.Text = "You must confirm name before draggin QP files";
     }
 
     private void Confirmed(object? o, RoutedEventArgs e){
@@ -41,8 +42,7 @@ public partial class MainWindow : Window
             Tools.SetCreator(creator.Text);
             Tools.SetConfirmation(true);
 
-            Debug.WriteLine(packName.Text);
-            Debug.WriteLine(creator.Text);
+            DISCLAIMER.Text = "You have Confirmed Name; You can no longer change";
         }
     }
 
@@ -112,6 +112,7 @@ public partial class MainWindow : Window
             Tools.step++;
             DRAGDROP.Text = "Drag and Drop the QPs";
             INSTRUCTIONS.Text = "Drop your QP files here";
+            
         }   else{
             //QP FILES
             //we names are confirmed, check files that are dropped

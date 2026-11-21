@@ -12,7 +12,7 @@ class Tools{
     public static int step = 0;
     private static bool confirmed = false;
 
-
+    
     //confirm names
     public static void SetConfirmation(bool b){
         confirmed = b;

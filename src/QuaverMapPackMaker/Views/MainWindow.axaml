@@ -117,6 +117,10 @@
                                 FontWeight = "Bold" Foreground = "Black"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
+            <Border Background = "#969696" CornerRadius = "30" Margin = "30">
+                <TextBlock  Name = "DISCLAIMER" Margin = "10" HorizontalAlignment = "Center" 
+                            FontSize = "35" FontWeight = "Bold" Foreground = "#222326"/>
+            </Border>
         </StackPanel>
 
         <!--  Column 1 END  -->
