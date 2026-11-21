@@ -18,7 +18,6 @@ class Merge{
 
         ZipFile.ExtractToDirectory(qpPath, Tools.sourceDir);
         Combine();
-        Export();
     }
 
     
@@ -87,6 +86,9 @@ class Merge{
 
     public static void Export(){
         String outputDir = Path.Combine(Directory.GetCurrentDirectory(), $"{MapsetInfo.Name}.qp");
+
+        Debug.WriteLine(Directory.GetCurrentDirectory());
+
         ZipFile.CreateFromDirectory(Tools.targetDir, outputDir);
         Directory.Delete(Tools.tempDir, true); // delete temp folder
         Debug.WriteLine($"Created {outputDir}");
