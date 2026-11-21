@@ -69,6 +69,8 @@ class Merge{
                 qua.BackgroundFile = MapsetInfo.Banner;
                 qua.BannerFile = MapsetInfo.Background;
 
+                Debug.WriteLine(MapsetInfo.Banner);
+                Debug.WriteLine(MapsetInfo.Background);
                 qua.Save(file);
             }
         }
