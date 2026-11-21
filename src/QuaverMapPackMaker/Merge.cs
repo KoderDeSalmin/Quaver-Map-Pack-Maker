@@ -12,11 +12,12 @@ class Merge{
     private static int idx = 0;
 
     public static void StoreFiles(String qpPath){
-        if(!qpStored)
+        if(!qpStored){
             ZipFile.ExtractToDirectory(qpPath, Tools.targetDir);
             qpStored = true;
-
-        ZipFile.ExtractToDirectory(qpPath, Tools.sourceDir);
+        } else{
+            ZipFile.ExtractToDirectory(qpPath, Tools.sourceDir);
+        }
         Combine();
         ClearSource();
     }
@@ -99,16 +100,6 @@ class Merge{
 
         if(File.Exists(outputQP))
             File.Delete(outputQP);
-        
-
-
-        //Bandaid solution to the duplicate diff issue, will find a real solution later
-        foreach (var file in Directory.GetFiles(Tools.targetDir)){
-            if(!Path.GetFileName(file).Substring(0,8).Equals("Imported"))
-                if(!Path.GetExtension(file).Equals(Path.GetExtension(MapsetInfo.Banner)) || !Path.GetExtension(file).Equals(Path.GetExtension(MapsetInfo.Background)))
-                    File.Delete(file);
-        }
-
 
 
         ZipFile.CreateFromDirectory(Tools.targetDir, outputQP);
