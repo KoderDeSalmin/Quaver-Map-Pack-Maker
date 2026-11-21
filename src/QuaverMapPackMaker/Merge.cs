@@ -85,10 +85,12 @@ class Merge{
 
 
     public static void Export(){
-        String outputDir = Path.Combine(Directory.GetCurrentDirectory(), $"{MapsetInfo.Name}.qp");
+        String outputDir = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "OUTPUT"), $"{MapsetInfo.Name}.qp");
 
-        Debug.WriteLine(Directory.GetCurrentDirectory());
-
+        if(File.Exists(outputDir)){
+            File.Delete(outputDir);
+        }
+        
         ZipFile.CreateFromDirectory(Tools.targetDir, outputDir);
         Directory.Delete(Tools.tempDir, true); // delete temp folder
         Debug.WriteLine($"Created {outputDir}");
