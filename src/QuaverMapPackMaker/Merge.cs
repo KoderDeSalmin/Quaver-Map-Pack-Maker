@@ -90,8 +90,8 @@ class Merge{
         if(!Directory.Exists(outputDir))
             Directory.CreateDirectory(outputDir);
 
-        if(File.Exists(outputDir))
-            File.Delete(outputDir);
+        if(File.Exists(outputQP))
+            File.Delete(outputQP);
         
 
         ZipFile.CreateFromDirectory(Tools.targetDir, outputQP);
