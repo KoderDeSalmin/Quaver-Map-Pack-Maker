@@ -91,6 +91,13 @@
                 </TextBox>
 
             </StackPanel>
+
+            <Border Background = "#969696" CornerRadius = "30" Margin = "25"
+                    Grid.Row = "2"/>
+            <Button     Content = "Confirm Names?" Width = "230" Height = "50"
+                        FontSize = "30" FontWeight = "Bold" Foreground = "Black"
+                        Click = "Confirmed" HorizontalAlignment = "Center"
+                        Grid.Row = "2"/>
         </Grid>
 
         <!--  Column 0 END  --> 

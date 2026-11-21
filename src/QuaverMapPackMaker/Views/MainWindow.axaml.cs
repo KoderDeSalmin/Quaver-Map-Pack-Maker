@@ -14,17 +14,20 @@ public partial class MainWindow : Window
         //first status of text
         DRAGDROP.Text = "Drag and Drop the background image";
         INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
+        //initialize name
+        Tools.SetName(packName.Text);
+        Tools.SetCreator(creator.Text);
     }
 
 
     //Function For button press
     private void Export(object? o, RoutedEventArgs e){
-        Tools.SetName(packName.Text);
-        Tools.SetCreator(creator.Text);
+        
         //
-        //Merge.Export();
+        Merge.Export();
 
         //Delete temp folders and reset step to reset program.
+        Tools.SetConfirmation(false);
         Tools.DeleteTemp();
         Tools.step = 0;
         Merge.qpStored = false;
@@ -32,7 +35,13 @@ public partial class MainWindow : Window
         INSTRUCTIONS.Text = "Drop ONE image file (PNG JPG JPEG)";
     }
 
-
+    private void Confirmed(object? o, RoutedEventArgs e){
+        if(!Tools.GetConfirmation()){
+            Tools.SetName(packName.Text);
+            Tools.SetCreator(creator.Text);
+            Tools.SetConfirmation(true);
+        }
+    }
 
 
     //Functino for when dragged
@@ -102,14 +111,17 @@ public partial class MainWindow : Window
             INSTRUCTIONS.Text = "Drop your QP files here";
         }   else{
             //QP FILES
-            if (e.DataTransfer.TryGetFiles() is { } files){
-                foreach (var file in files){
-                    var qpPath = file.Path.LocalPath;
-                    if(Tools.CheckQP(qpPath)){
-                        try{
-                            Merge.StoreFiles(qpPath);
-                        } catch(Exception error){
-                            Debug.WriteLine(error);
+            //we names are confirmed, check files that are dropped
+            if(Tools.GetConfirmation()){
+                if (e.DataTransfer.TryGetFiles() is { } files){
+                    foreach (var file in files){
+                        var qpPath = file.Path.LocalPath;
+                        if(Tools.CheckQP(qpPath)){
+                            try{
+                                Merge.StoreFiles(qpPath);
+                            } catch(Exception error){
+                                Debug.WriteLine(error);
+                            }
                         }
                     }
                 }

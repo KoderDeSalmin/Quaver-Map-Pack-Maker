@@ -10,7 +10,16 @@ class Tools{
     public static String sourceDir = "";
 
     public static int step = 0;
+    private static bool confirmed = false;
 
+
+    //confirm names
+    public static void SetConfirmation(bool b){
+        confirmed = b;
+    }
+    public static bool GetConfirmation(){
+        return confirmed;
+    }
 
     //Check file extension for images
     public static bool CheckIMG(String file){
