@@ -66,8 +66,8 @@ class Merge{
                 qua.Artist = "Various Artists";
                 qua.Title = MapsetInfo.Name;
                 qua.Creator = MapsetInfo.Creator;
-                qua.BackgroundFile = MapsetInfo.Banner;
-                qua.BannerFile = MapsetInfo.Background;
+                qua.BackgroundFile = MapsetInfo.Background;
+                qua.BannerFile = MapsetInfo.Banner;
 
                 qua.Save(file);
             }
