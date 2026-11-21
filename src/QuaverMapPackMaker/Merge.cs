@@ -96,7 +96,7 @@ class Merge{
 
         ZipFile.CreateFromDirectory(Tools.targetDir, outputQP);
         Directory.Delete(Tools.tempDir, true); // delete temp folder
-        Debug.WriteLine($"Created {outputDir}");
+        Debug.WriteLine($"Created {outputQP}");
     }
 
 
